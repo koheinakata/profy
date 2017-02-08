@@ -1,13 +1,9 @@
-class Question < ActiveRecord::Base
+class Question < ApplicationRecord
   #association
   belongs_to :user
   belongs_to :group
-  has_many :answers, dependent: :destroy
+  has_many :answers
 
   #validation
   validates_presence_of :user_id, :text, :group_id
-
-  def user_answer(user_id)
-      Answer.find_by(user_id: user_id, question_id: self.id)
-  end
 end
