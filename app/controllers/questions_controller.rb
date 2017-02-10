@@ -4,6 +4,15 @@ class QuestionsController < ApplicationController
     redirect_to :root and return
   end
 
+  def edit
+    @answer = Answer.find(params[:id])
+    @question = @answer.question
+  end
+
+  def update
+    
+  end
+
   def show
     @question = Question.find(params[:id])
     @answers = @question.answers
